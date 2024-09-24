@@ -142,6 +142,9 @@ namespace SwaggerWcf.Support
                     !methodTags.Select(t => t.TagName).Any(VisibleTags.Contains))
                     continue;
 
+                if (methodTags.Count == 0)
+                    throw new InvalidOperationException($"No tags for '{implementation.Name}'");
+
                 //find the WebGet/Invoke attributes, or skip if neither is present
                 WebGetAttribute wg = declaration.GetCustomAttribute<WebGetAttribute>();
                 WebInvokeAttribute wi = declaration.GetCustomAttribute<WebInvokeAttribute>();
