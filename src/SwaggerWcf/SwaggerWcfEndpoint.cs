@@ -99,13 +99,6 @@ namespace SwaggerWcf
 
         public Stream GetSwaggerFile()
         {
-            WebOperationContext woc = WebOperationContext.Current;
-            if (woc != null)
-            {
-                woc.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "https://swagger.eway-crm.io");
-                woc.OutgoingResponse.ContentType = "application/json";
-            }
-
             return new MemoryStream(Encoding.UTF8.GetBytes(GetSwaggerFileContents()));
         }
 
