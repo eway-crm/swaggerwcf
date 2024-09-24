@@ -7,7 +7,7 @@ namespace SwaggerWcf.Attributes
     ///     This overrides any tag-based settings.
     /// </summary>
     [AttributeUsage(
-        AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Parameter)]
+        AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Property | AttributeTargets.Parameter)]
     public class SwaggerWcfHiddenAttribute : Attribute
     {
     }

@@ -57,7 +57,7 @@ namespace SwaggerWcf.Support
             foreach (Type i in types)
             {
                 Attribute dc = i.GetCustomAttribute(typeof(ServiceContractAttribute));
-                if (dc == null)
+                if (dc == null || i.GetCustomAttribute(typeof(SwaggerWcfHiddenAttribute)) != null)
                     continue;
 
                 //found a DataContract, now get a service map and inspect the methods for WebGet/WebInvoke
@@ -65,17 +65,6 @@ namespace SwaggerWcf.Support
                 {
                     InterfaceMapping map = serviceType.GetInterfaceMap(i);
                     pathActions.AddRange(GetActions(map.TargetMethods, map.InterfaceMethods, definitionsTypesList));
-
-                    //Nested Interface
-                    var baseInterfaces = i.GetInterfaces();
-                    if (baseInterfaces != null)
-                    {
-                        foreach (var baseInterface in baseInterfaces)
-                        {
-                            var _map = serviceType.GetInterfaceMap(baseInterface);
-                            pathActions.AddRange(GetActions(_map.TargetMethods, _map.InterfaceMethods, definitionsTypesList));
-                        }
-                    }
                 }
                 else
                 {
