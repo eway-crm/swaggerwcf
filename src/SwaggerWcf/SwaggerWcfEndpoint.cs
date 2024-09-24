@@ -102,8 +102,7 @@ namespace SwaggerWcf
             WebOperationContext woc = WebOperationContext.Current;
             if (woc != null)
             {
-                //TODO: create a parameter in settings to configure this
-                woc.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+                woc.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "https://swagger.eway-crm.io");
                 woc.OutgoingResponse.ContentType = "application/json";
             }
 
@@ -117,17 +116,17 @@ namespace SwaggerWcf
             if (woc == null)
                 return Stream.Null;
 
-            if (DisableSwaggerUI)
+            if (string.IsNullOrWhiteSpace(content))
             {
-                woc.OutgoingResponse.StatusCode = HttpStatusCode.NotFound;
+                string swaggerUrl = woc.IncomingRequest.UriTemplateMatch.BaseUri + "/swagger.json";
+                woc.OutgoingResponse.StatusCode = HttpStatusCode.Redirect;
+                woc.OutgoingResponse.Location = "https://swagger.eway-crm.io/?url=" + swaggerUrl;
                 return null;
             }
 
-            if (string.IsNullOrWhiteSpace(content))
+            if (DisableSwaggerUI)
             {
-                string swaggerUrl = woc.IncomingRequest.UriTemplateMatch.BaseUri.LocalPath + "/swagger.json";
-                woc.OutgoingResponse.StatusCode = HttpStatusCode.Redirect;
-                woc.OutgoingResponse.Location = "index.html?url=" + swaggerUrl;
+                woc.OutgoingResponse.StatusCode = HttpStatusCode.NotFound;
                 return null;
             }
 
