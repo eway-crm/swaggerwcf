@@ -80,7 +80,7 @@ namespace SwaggerWcf.Support
             }
             if (type == typeof(Guid))
             {
-                return new TypeFormat(ParameterType.String, "guid");
+                return new TypeFormat(ParameterType.String, "uuid");
             }
             if (type == typeof(Stream))
             {
