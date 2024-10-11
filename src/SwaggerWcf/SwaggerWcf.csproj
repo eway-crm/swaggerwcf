@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\SwaggerWcfContactInfoAttribute.cs" />
+    <Compile Include="Attributes\SwaggerWcfCustomTypeFormatAttribute.cs" />
     <Compile Include="Attributes\SwaggerWcfRegexAttribute.cs" />
     <Compile Include="Attributes\SwaggerWcfLicenseInfoAttribute.cs" />
     <Compile Include="Attributes\SwaggerWcfServiceInfoAttribute.cs" />

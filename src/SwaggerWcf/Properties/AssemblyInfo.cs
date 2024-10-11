@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("SwaggerWcf")]
 [assembly: AssemblyDescription("Swagger for WCF")]
-[assembly: AssemblyCompany("abelsilva")]
+[assembly: AssemblyCompany("eWay System s.r.o.")]
 [assembly: AssemblyProduct("SwaggerWcf")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright © eWay System s.r.o. 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -37,6 +37,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.16")]
-[assembly: AssemblyFileVersion("0.2.16")]
-[assembly: AssemblyInformationalVersion("0.2.16")]
+[assembly: AssemblyVersion("0.2.17")]
+[assembly: AssemblyFileVersion("0.2.17")]
+[assembly: AssemblyInformationalVersion("0.2.17")]

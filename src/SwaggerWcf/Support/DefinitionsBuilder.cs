@@ -166,6 +166,13 @@ namespace SwaggerWcf.Support
                 prop.Default = defAttr.Value.ToString();
             }
 
+            // Apply custom type format
+            var typeFormatAttribute = propertyInfo.GetCustomAttribute<SwaggerWcfCustomTypeFormatAttribute>();
+            if (typeFormatAttribute != null)
+            {
+                prop.TypeFormat = new TypeFormat(typeFormatAttribute.Type, typeFormatAttribute.Format);
+            }
+
             // Apply any [SwaggerWcfProperty]s in order.
             var attrs = propertyInfo.GetCustomAttributes<SwaggerWcfPropertyAttribute>().ToList();
             if (!attrs.Any())
